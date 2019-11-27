@@ -1,5 +1,8 @@
 # rnative-tabs
 
+<p align="center">
+    <img src="capture.gif" width="50%" align="center"/>
+</p>
 ### Install
 
     yarn add rnative-tabs
