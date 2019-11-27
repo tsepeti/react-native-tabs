@@ -1,0 +1,14 @@
+{
+  "name": "rnative-tabs",
+  "version": "0.0.1",
+  "description": "React Native Tab View",
+  "main": "index.js",
+  "repository": "https://github.com/tsepeti/react-native-tabs.git",
+  "author": "Yasar icli <yasaricli@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "prop-types": "*",
+    "react": "*",
+    "react-native": "*"
+  }
+}
