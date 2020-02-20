@@ -1,14 +1,15 @@
-import React, { Component } from "react";
-import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
+import React, { Component } from 'react';
+import { View, TouchableOpacity, ActivityIndicator } from 'react-native';
+import ScalableText from 'react-native-text';
 
 // Styles
-import Styles from "./styles";
+import Styles from './styles';
 
 class Loading extends Component {
   render() {
     return (
       <View style={Styles.loadingContainer}>
-        <ActivityIndicator size={"large"} color={"#0a2882"} />
+        <ActivityIndicator size={'large'} color={'#0a2882'} />
       </View>
     );
   }
@@ -48,6 +49,7 @@ export default class Tab extends Component {
   }
 
   render() {
+    const { labelTextProps } = this.props;
     const tab = this.activeTab();
 
     return (
@@ -63,16 +65,17 @@ export default class Tab extends Component {
                 ]}
                 onPress={() => this._changeTab(i)}
               >
-                <Text
+                <ScalableText
                   style={[
                     Styles.containerTabsTouchableText,
                     this._isActiveIndex(i)
                       ? Styles.activeTabText
                       : Styles.pasiveTabText
                   ]}
+                  {...labelTextProps}
                 >
                   {name}
-                </Text>
+                </ScalableText>
               </TouchableOpacity>
             );
           })}

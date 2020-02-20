@@ -10,5 +10,8 @@
     "prop-types": "*",
     "react": "*",
     "react-native": "*"
+  },
+  "dependencies": {
+    "react-native-text": "^1.0.0"
   }
 }
