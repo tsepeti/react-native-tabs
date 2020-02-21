@@ -17,12 +17,12 @@ export default StyleSheet.create({
 		justifyContent: 'center'
 	},
 
-	activeTab: {
+	activeTouchable: {
 		borderBottomColor: '#016bd8',
 		borderBottomWidth: 3
 	},
 
-	pasiveTab: {
+	defaultTouchable: {
 		borderBottomColor: '#F4F4F4',
 		borderBottomWidth: 3
 	},
@@ -32,7 +32,7 @@ export default StyleSheet.create({
     textAlign: 'center'
 	},
 
-	activeTabText: {
+	activeLabelText: {
 		color: '#016bd8'
 	},
 

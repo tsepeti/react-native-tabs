@@ -47,7 +47,13 @@ export default class Tabs extends Component {
   }
 
   render() {
-    const { labelTextProps } = this.props;
+    const {
+      labelTextProps,
+      defaultLabelStyles,
+      activeLabelstyles,
+      defaultPanStyles,
+      activePanStyles
+    } = this.props;
 
     return (
       <View style={Styles.container}>
@@ -60,7 +66,15 @@ export default class Tabs extends Component {
                 key={i}
                 style={[
                   Styles.containerTabsTouchable,
-                  this._isActiveIndex(i) ? Styles.activeTab : Styles.pasiveTab
+                  this._isActiveIndex(i)
+                    ? {
+                        ...Styles.activeTouchable,
+                        ...activePanStyles
+                      }
+                    : {
+                        ...Styles.defaultTouchable,
+                        ...defaultPanStyles
+                      }
                 ]}
                 onPress={() => this._changeTab(i)}
               >
@@ -68,8 +82,14 @@ export default class Tabs extends Component {
                   style={[
                     Styles.containerTabsTouchableText,
                     this._isActiveIndex(i)
-                      ? Styles.activeTabText
-                      : Styles.pasiveTabText
+                      ? {
+                          ...Styles.activeLabelText,
+                          ...activeLabelstyles
+                        }
+                      : {
+                          ...Styles.defaultLabelText,
+                          ...defaultLabelStyles
+                        }
                   ]}
                   {...labelTextProps}
                 >
