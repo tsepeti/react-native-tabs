@@ -15,7 +15,7 @@ class Loading extends Component {
   }
 }
 
-export default class Tab extends Component {
+export default class Tabs extends Component {
   state = {
     active: 0,
     loading: false
@@ -25,23 +25,21 @@ export default class Tab extends Component {
     return setTimeout(fn, 100);
   }
 
-  activeTab() {
-    return this.props.list[this.state.active];
-  }
-
-  _activeTabNames() {
-    return this.props.list.map(tab => tab.name);
+  _activeView() {
+    return this.props.children[this.state.active];
   }
 
   _changeTab(active, callback) {
-    if (!this.state.loading) {
-      // set loading..
-      this.setState({ loading: true, active });
-
-      return this.delay(() => {
-        return this.setState({ loading: false }, callback);
-      });
+    if (this._isActiveIndex(active)) {
+      return;
     }
+
+    // set loading..
+    this.setState({ loading: true, active });
+
+    return this.delay(() => {
+      return this.setState({ loading: false }, callback);
+    });
   }
 
   _isActiveIndex(index) {
@@ -50,12 +48,13 @@ export default class Tab extends Component {
 
   render() {
     const { labelTextProps } = this.props;
-    const tab = this.activeTab();
 
     return (
       <View style={Styles.container}>
         <View style={Styles.containerTabsContent}>
-          {this._activeTabNames().map((name, i) => {
+          {React.Children.map(this.props.children, (child, i) => {
+            const { label } = child.props;
+
             return (
               <TouchableOpacity
                 key={i}
@@ -74,14 +73,14 @@ export default class Tab extends Component {
                   ]}
                   {...labelTextProps}
                 >
-                  {name}
+                  {label}
                 </ScalableText>
               </TouchableOpacity>
             );
           })}
         </View>
         <View style={Styles.containerViewsCntent}>
-          {this.state.loading ? <Loading /> : tab.view()}
+          {this.state.loading ? <Loading /> : this._activeView()}
         </View>
       </View>
     );
