@@ -50,7 +50,7 @@ export default class Tabs extends Component {
     const {
       labelTextProps,
       defaultLabelStyles,
-      activeLabelstyles,
+      activeLabelStyles,
       defaultPanStyles,
       activePanStyles
     } = this.props;
@@ -84,7 +84,7 @@ export default class Tabs extends Component {
                     this._isActiveIndex(i)
                       ? {
                           ...Styles.activeLabelText,
-                          ...activeLabelstyles
+                          ...activeLabelStyles
                         }
                       : {
                           ...Styles.defaultLabelText,
