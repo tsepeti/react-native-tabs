@@ -6,20 +6,31 @@
 A Tab View component for React Native.
 </p>
 
-### Install
+### Installation
+Open a Terminal in the project root and run:
 
     yarn add rnative-tabs
     
-### Using
+### Quick Start
+
+Basic usage look like this:
 
 ```JS
-<RnativeTabs>
-  <View label="Ana Sayfa">
-    <Text>Merhaba burası ana sayfa!</Text>
-  </View>
+import React, { Component } from 'react';
 
-  <View label="İletişim">
-    <Text>Merhaba burası İletişim!</Text>
-  </View>
-</RnativeTabs>
+class Index extends Component {
+  render() {
+    return (
+       <RnativeTabs>
+         <View label="Ana Sayfa">
+           <Text>Merhaba burası ana sayfa!</Text>
+         </View>
+
+         <View label="İletişim">
+           <Text>Merhaba burası İletişim!</Text>
+         </View>
+       </RnativeTabs>   
+    )
+  }
+}
 ```
