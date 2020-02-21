@@ -1,7 +1,9 @@
-# rnative-tabs
-
 <p align="center">
     <img src="capture.gif" width="50%" align="center"/>
+</p>
+
+<p align="center">
+A Tab View component for React Native.
 </p>
 
 ### Install
