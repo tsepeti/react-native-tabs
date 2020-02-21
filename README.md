@@ -11,34 +11,13 @@
 ### Using
 
 ```JS
+<RnativeTabs>
+  <View label="Ana Sayfa">
+    <Text>Merhaba burası ana sayfa!</Text>
+  </View>
 
-const TabList = [
-  {
-    name: 'Ana Sayfa',
-    view() {
-      return (
-        <View>
-          <Text>Merhaba burası ana sayfa!</Text>
-        </View>
-      )
-    }
-  },
-  
-  {
-    name: 'İletişim',
-    view() {
-      return (
-        <View>
-          <Text>Merhaba burası İletişim!</Text>
-        </View>
-      )
-    }
-  }
-]
-
-
-<RnativeTabs
-  ref="tab"
-  list={TabList}
-/>
+  <View label="İletişim">
+    <Text>Merhaba burası İletişim!</Text>
+  </View>
+</RnativeTabs>
 ```
