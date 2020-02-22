@@ -7,11 +7,15 @@ import Styles from './styles';
 
 class Loading extends Component {
   render() {
-    const { loadingComponent }  = this.props;
-    
+    const { loadingComponent } = this.props;
+
     return (
       <View style={Styles.loadingContainer}>
-        {loadingComponent ? loadingComponent() : <ActivityIndicator size={'large'} color={'#0a2882'} />}
+        {loadingComponent ? (
+          loadingComponent()
+        ) : (
+          <ActivityIndicator size={'large'} color={'#0a2882'} />
+        )}
       </View>
     );
   }
@@ -102,7 +106,11 @@ export default class Tabs extends Component {
           })}
         </View>
         <View style={Styles.containerViewsCntent}>
-          {this.state.loading ? <Loading {...this.props} /> : this._activeView()}
+          {this.state.loading ? (
+            <Loading {...this.props} />
+          ) : (
+            this._activeView()
+          )}
         </View>
       </View>
     );
