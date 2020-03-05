@@ -65,7 +65,7 @@ export default class Tabs extends Component {
       <View style={Styles.container}>
         <View style={Styles.containerTabsContent}>
           {React.Children.map(this.props.children, (child, i) => {
-            const { label } = child.props;
+            const { label, touchProps = {} } = child.props;
 
             return (
               <TouchableOpacity
@@ -83,6 +83,7 @@ export default class Tabs extends Component {
                       }
                 ]}
                 onPress={() => this.changeTab(i)}
+                {...touchProps}
               >
                 <ScalableText
                   style={[
