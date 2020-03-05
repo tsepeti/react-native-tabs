@@ -35,8 +35,8 @@ export default class Tabs extends Component {
     return this.props.children[this.state.active];
   }
 
-  _changeTab(active, callback) {
-    if (this._isActiveIndex(active)) {
+  changeTab(active, callback, passActive = false) {
+    if (passActive && this._isActiveIndex(active)) {
       return;
     }
 
@@ -82,7 +82,7 @@ export default class Tabs extends Component {
                         ...defaultPanStyles
                       }
                 ]}
-                onPress={() => this._changeTab(i)}
+                onPress={() => this.changeTab(i)}
               >
                 <ScalableText
                   style={[
