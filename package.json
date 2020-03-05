@@ -1,6 +1,6 @@
 {
   "name": "rnative-tabs",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React Native Tab View",
   "main": "index.js",
   "repository": "https://github.com/tsepeti/react-native-tabs.git",
