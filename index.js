@@ -35,8 +35,8 @@ export default class Tabs extends Component {
     return this.props.children[this.state.active];
   }
 
-  changeTab(active, callback, passActive = false) {
-    if (passActive && this._isActiveIndex(active)) {
+  changeTab(active, callback, passIsActive = false) {
+    if (!passIsActive && this._isActiveIndex(active)) {
       return;
     }
 
