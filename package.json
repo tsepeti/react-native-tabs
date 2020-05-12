@@ -1,5 +1,5 @@
 {
-  "name": "rnative-tabs",
+  "name": "@tatil/react-native-tabs",
   "version": "0.3.0",
   "description": "React Native Tab View",
   "main": "index.js",
