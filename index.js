@@ -7,12 +7,12 @@ import Styles from './styles';
 
 class Loading extends Component {
   render() {
-    const { loadingComponent } = this.props;
+    const { isLoadingComponent } = this.props;
 
     return (
-      <View style={Styles.loadingContainer}>
-        {loadingComponent ? (
-          loadingComponent()
+      <View style={Styles.isLoadingContainer}>
+        {isLoadingComponent ? (
+          isLoadingComponent()
         ) : (
           <ActivityIndicator size={'large'} color={'#0a2882'} />
         )}
@@ -24,7 +24,7 @@ class Loading extends Component {
 export default class Tabs extends Component {
   state = {
     active: 0,
-    loading: false
+    isLoading: false,
   };
 
   delay(fn) {
@@ -40,16 +40,27 @@ export default class Tabs extends Component {
       return;
     }
 
-    // set loading..
-    this.setState({ loading: true, active });
+    // set isLoading..
+    this.setState({ isLoading: true, active });
 
     return this.delay(() => {
-      return this.setState({ loading: false }, callback);
+      return this.setState({ isLoading: false }, callback);
     });
   }
 
   _isActiveIndex(index) {
     return this.state.active == index;
+  }
+
+  views() {
+    const { isLoading } = this.state;
+    const { tabbedLoading } = this.props;
+
+    if (tabbedLoading && isLoading) {
+      return <Loading {...this.props} />;
+    }
+
+    return this._activeView();
   }
 
   render() {
@@ -58,7 +69,7 @@ export default class Tabs extends Component {
       defaultLabelStyles,
       activeLabelStyles,
       defaultPanStyles,
-      activePanStyles
+      activePanStyles,
     } = this.props;
 
     return (
@@ -75,12 +86,12 @@ export default class Tabs extends Component {
                   this._isActiveIndex(i)
                     ? {
                         ...Styles.activeTouchable,
-                        ...activePanStyles
+                        ...activePanStyles,
                       }
                     : {
                         ...Styles.defaultTouchable,
-                        ...defaultPanStyles
-                      }
+                        ...defaultPanStyles,
+                      },
                 ]}
                 onPress={() => this.changeTab(i)}
                 {...touchProps}
@@ -91,12 +102,12 @@ export default class Tabs extends Component {
                     this._isActiveIndex(i)
                       ? {
                           ...Styles.activeLabelText,
-                          ...activeLabelStyles
+                          ...activeLabelStyles,
                         }
                       : {
                           ...Styles.defaultLabelText,
-                          ...defaultLabelStyles
-                        }
+                          ...defaultLabelStyles,
+                        },
                   ]}
                   {...labelTextProps}
                 >
@@ -106,13 +117,7 @@ export default class Tabs extends Component {
             );
           })}
         </View>
-        <View style={Styles.containerViewsCntent}>
-          {this.state.loading ? (
-            <Loading {...this.props} />
-          ) : (
-            this._activeView()
-          )}
-        </View>
+        <View style={Styles.containerViewsCntent}>{this.views()}</View>
       </View>
     );
   }
