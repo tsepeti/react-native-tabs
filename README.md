@@ -9,7 +9,7 @@ A Tab View component for React Native.
 ### Installation
 Open a Terminal in the project root and run:
 
-    yarn add rnative-tabs
+    yarn add @tatil/react-native-tabs
     
 ### Quick Start
 
