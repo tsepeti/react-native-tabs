@@ -17,11 +17,12 @@ Basic usage look like this:
 
 ```JS
 import React, { Component } from 'react';
+import Tabs from '@tatil/react-native-tabs';
 
 class Index extends Component {
   render() {
     return (
-       <RnativeTabs>
+       <Tabs>
          <View label="Ana Sayfa">
            <Text>Merhaba burası ana sayfa!</Text>
          </View>
@@ -29,7 +30,7 @@ class Index extends Component {
          <View label="İletişim">
            <Text>Merhaba burası İletişim!</Text>
          </View>
-       </RnativeTabs>   
+       </Tabs>   
     )
   }
 }
